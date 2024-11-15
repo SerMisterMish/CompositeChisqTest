@@ -137,7 +137,10 @@ model.pval <- function(rgen,
                        right.border,
                        M) {
   x <- do.call(rgen, gen.parameters)
-  mle.parameters <- mle.fun(x, model.parameters)
+  if (!is.null(mle.fun))
+    mle.parameters <- mle.fun(x, model.parameters)
+  else 
+    mle.parameters <- NULL
   
   states <- 0:max(x)
   if (is.infinite(right.border))
