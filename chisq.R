@@ -41,7 +41,7 @@ group.states <- function(freq.pract, prob.theor, M) {
       state.names[K.new - 1] <- paste0(state.names[K.new - 1], ", ", state.names[K.new])
     state.names[K.new] <- NA
     
-    K <- K.new - 1
+    K.new <- K.new - 1
   }
   
   names(prob.theor) <- state.names[!is.na(state.names)]
@@ -49,7 +49,7 @@ group.states <- function(freq.pract, prob.theor, M) {
   
   list(freq.pract = freq.pract[freq.pract >= 0],
        prob.theor = prob.theor[prob.theor >= 0],
-       K = K)
+       K = K.new)
 }
 
 chisq.pval <- function(x,

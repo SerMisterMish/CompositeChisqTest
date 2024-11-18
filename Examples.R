@@ -86,7 +86,7 @@ for (m in seq_along(Ms))
 
 # H0: Geometric(0.3), exact test
 modeling.times <- 500
-sample.size <- 100^2
+sample.size <- 100
 
 gen.parameters <- list(n = sample.size, prob = 0.3)
 model.parameters <- list(prob = 0.3)
@@ -106,7 +106,7 @@ pvals <- lapply(Ms, (\(M)
 plot.pval(
   pvals,
   Ms = Ms,
-  main = "Выборочная функция распределения p-v при верной H0",
+  main = "Выборочная функция распределения p-v при H0: x~Geom(0.3)",
   sub = paste0(
     "Geom(q = ",
     gen.parameters$prob,
